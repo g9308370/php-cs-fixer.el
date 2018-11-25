@@ -45,8 +45,13 @@
 (defvar php-cs-fixer--args '()
   "List of args for php-cs-fixer command.")
 
-(defvar php-cs-fixer--enable t
+(defvar php-cs-fixer--enable nil
   "Control whether code style fixing happens or not.")
+
+(add-hook 'php-mode-hook 'php-cs-fixer-hook)
+(defun php-cs-fixer-hook ()
+  (setq php-cs-fixer--enable t)
+)
 
 (defun php-cs-fixer--get-project-dir ()
   "Return project directory."
