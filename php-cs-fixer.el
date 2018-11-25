@@ -136,6 +136,7 @@ function."
   (setq arg (or arg 1))
   (if (and (> arg 0)
            (eobp)
+            
            (save-excursion (forward-visible-line 0) (eobp)))
       (signal 'end-of-buffer nil))
   (if (and (< arg 0)
